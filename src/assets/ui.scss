@@ -1,0 +1,209 @@
+// 滚动条
+::-webkit-scrollbar {
+  position: relative;
+  width: 4px;
+  height: 4px;
+  z-index: 5 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  position: absolute;
+  z-index: 5 !important;
+  border-radius: 2px;
+  background: #eaecf1;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 8px rgba(255,255,255,.1);
+  z-index: 5 !important;
+  border-radius: 2px;
+  opacity: .4;
+}
+
+// 去除输入框黄色背景
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+
+// 常用字体
+.ui-text-xs {
+  font-style: 10px;
+}
+
+.ui-text-sm {
+  font-style: 12px;
+}
+
+.ui-text-md {
+  font-style: 14px;
+}
+
+.ui-text-lg {
+  font-style: 16px;
+}
+
+.ui-text-xl {
+  font-style: 18px;
+}
+
+/* 
+* 边距｜字体大小｜行高 修饰器
+* 范围 1-50
+*/
+@for $i from 1 through 10 {
+  .ui-mb-#{$i} { margin-bottom: 1px * $i !important; }
+  .ui-mr-#{$i} { margin-right: 1px * $i !important; }
+  .ui-ml-#{$i} { margin-left: 1px * $i !important; }
+  .ui-mt-#{$i} { margin-top: 1px * $i !important; }
+  .ui-m-#{$i} { margin: 1px * $i !important; }
+  .ui-mb-n#{$i} { margin-bottom: -1px * $i !important; }
+  .ui-mr-n#{$i} { margin-right: -1px * $i !important; }
+  .ui-ml-n#{$i} { margin-left: -1px * $i !important; }
+  .ui-mt-n#{$i} { margin-top: -1px * $i !important; }
+  .ui-pb-#{$i} { padding-bottom: 1px * $i !important; }
+  .ui-pr-#{$i} { padding-right: 1px * $i !important; }
+  .ui-pl-#{$i} { padding-left: 1px * $i !important; }
+  .ui-pt-#{$i} { padding-top: 1px * $i !important; }
+  .ui-fs-#{$i} { font-size: 1px * $i !important ; }
+  .ui-lh-#{$i} { line-height: 1px * $i !important;}
+  // @if $i > 5 {
+  //   .fs-#{$i} { font-size: 1px * $i !important ; }
+  //   .lh-#{$i} { line-height: 1px * $i !important;}
+  // }
+}
+
+// 链接色可点击
+.ui-clickable {
+  cursor: pointer;
+  color: #657dbc;
+}
+
+.ui-pointer {
+  cursor: pointer;
+}
+
+// display 
+.ui-block {
+  display: block;
+}
+
+.ui-inline-block {
+  display: inline-block;
+}
+
+.ui-inline {
+  display: inline;
+}
+
+// display flex 
+.ui-flex {
+  display: flex;
+}
+
+.ui-inline-flex {
+  display: inline-flex;
+}
+
+.ui-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.ui-flex-auto {
+  flex: 1;
+  flex-shrink: 0;
+  overflow: autos;
+}
+
+.ui-flex--align-enter {
+  display: flex;
+  align-items: center;
+}
+
+.ui-flex--justify-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ui-flex--justify-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ui-flex--justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+// 文本对其方式
+.ui-text-left {
+  text-align: left;
+}
+
+.ui-text-right {
+  text-align: right;
+}
+
+.ui-text-center {
+  text-align: center;
+}
+
+// 文本不换行
+.ui-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// 浮动
+.ui-fl {
+  float: left;
+}
+
+.ui-fr {
+  float: right;
+}
+
+// 清楚浮动
+.ui-clearfix {
+  &:after{
+    display: block;
+    visibility: hidden;
+    content:' ';
+    clear: both;
+    height: 0;
+    font-size: 0;
+  }
+}
+
+// 旋转
+.ui-rotate {
+  display: flex;
+  align-items: center;
+  height: 12px;
+  width: 16px;
+  font-size: 12px;
+  color: #4a90e2;
+  animation: rotate 3s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(9deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+

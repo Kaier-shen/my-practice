@@ -1,0 +1,41 @@
+body {
+  height: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: "Times New Roman", Times, serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover { 
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:hover {
+  outline: none;
+}

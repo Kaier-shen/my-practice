@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <!-- <el-input></el-input> -->
+  <div class="aap-container">
+    <el-input></el-input>
   </div>
 </template>
 

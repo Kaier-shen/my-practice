@@ -137,6 +137,19 @@ select:-webkit-autofill {
   justify-content: center;
 }
 
+// 定位
+.ui-relative {
+  position: relative;
+}
+
+.ui-absolute {
+  position: absolute;
+}
+
+.ui-fixed {
+  position: fixed;
+}
+
 // 文本对其方式
 .ui-text-left {
   text-align: left;
@@ -166,7 +179,7 @@ select:-webkit-autofill {
   float: right;
 }
 
-// 清楚浮动
+// 清除浮动
 .ui-clearfix {
   &:after{
     display: block;

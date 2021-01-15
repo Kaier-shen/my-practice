@@ -1,6 +1,6 @@
 <template>
   <div>
-    s111
+    three.js
   </div>
 </template>
 

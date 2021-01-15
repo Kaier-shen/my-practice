@@ -1,10 +1,11 @@
-.aap-container {
+.app-container {
   display: flex;
   flex-direction: column;
   overflow: auto;
   height: calc(100% - 24px);
   margin: 12px;
-  padding:20px;
+  // padding:20px;
   border-radius: 2px;
-  background: #fff;
+  background: #ffffff;
+  box-sizing: border-box;
 }

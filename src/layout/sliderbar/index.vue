@@ -1,35 +1,32 @@
 <template>
-  <div>
-    <el-menu
-      class="el-menu-vertical-demo"
-      :collapse="isCollapse"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b"
-      router
-      :default-active="$route.path"
-      @mouseenter.native="isCollapse = false"
-      @mouseleave.native="isCollapse = true"
-    >
-      <menu-item :menus="list" />
-    </el-menu>
-  </div>
+  <el-menu
+    class="el-menu-vertical-demo"
+    :collapse="isCollapse"
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+    router
+    :default-active="$route.path"
+    @mouseenter.native="isCollapse = false"
+    @mouseleave.native="isCollapse = true"
+  >
+    <child-menu :menus="list" :isCollapse="isCollapse" />
+  </el-menu>
 </template>
 
 <script>
-import menuItem from "./menu-item";
+import childMenu from "./child-menu";
 import { routes } from "@/router";
 
 function buildMenu(route, children = []) {
   const fChildren = (route.children || []).filter(v => !v.hidden);
-  console.log(fChildren);
+  // console.log(fChildren);
 
   const addNode = () => {
     const menu = {
       id: route.name,
       icon: route.meta.icon || "",
       name: route.meta.title || "",
-      subTitle: route.meta.subTitle || "",
       path: route.path,
       children: []
     };
@@ -53,7 +50,7 @@ function buildMenu(route, children = []) {
 
 export default {
   components: {
-    menuItem
+    childMenu
   },
   data() {
     return {
@@ -67,9 +64,8 @@ export default {
     routes.forEach(v => {
       !v.hidden && buildMenu(v, this.list, []);
     });
-    console.log(routes);
-  },
-  methods: {}
+    // console.log(this.list);
+  }
 };
 </script>
 
@@ -77,6 +73,9 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
+}
+/deep/ .el-icon-arrow-right {
+  display: none;
 }
 .el-menu {
   position: fixed;

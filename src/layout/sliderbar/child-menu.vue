@@ -1,15 +1,16 @@
 <template>
   <div>
-    <div v-for="item in menus" :key="item.id" :index="item.path">
-      <!-- 有子菜单 -->
-      <el-submenu :index="item.path" v-if="item.children.length">
+    <div v-for="item in menus" :key="item.id">
+      <el-submenu
+        v-if="item.children && item.children.length > 0"
+        :index="item.path"
+      >
         <template slot="title">
           <i :class="item.icon"></i>
-          <span slot="title">{{ item.name }}</span>
+          <span v-show="!isCollapse" slot="title">{{ item.name }}</span>
         </template>
-        <menu-item :menus="item.children" />
+        <child-menu :menus="item.children" :isCollapse="isCollapse" />
       </el-submenu>
-      <!-- 无子菜单 -->
       <el-menu-item :index="item.path" v-else>
         <i :class="item.icon"></i>
         <span slot="title">{{ item.name }}</span>
@@ -20,12 +21,15 @@
 
 <script>
 export default {
+  name: "childMenu",
   props: {
     menus: {
       type: Array,
-      required: true
+      default: () => []
+    },
+    isCollapse: {
+      type: Boolean
     }
-  },
-  name: "menu-item"
+  }
 };
 </script>

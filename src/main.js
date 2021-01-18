@@ -4,9 +4,9 @@ import router from "./router";
 import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-import "@/assets/reset.scss";
-import "@/assets/common.scss";
-import "@/assets/ui.scss";
+import "@/assets/styles/reset.scss";
+import "@/assets/styles/common.scss";
+import "@/assets/styles/ui.scss";
 
 Vue.use(ElementUI);
 

@@ -15,7 +15,7 @@ export default {
   methods: {
     init() {
       const canvas = document.querySelector("#c");
-      const renderer = new THREE.WebGLRenderer({ canvas: canvas });
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
       renderer.setClearColor(0xaaaaaa);
       renderer.shadowMap.enabled = true;
 

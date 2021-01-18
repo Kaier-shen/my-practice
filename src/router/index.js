@@ -1,65 +1,73 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Layout from "@/components/layout/index.vue";
-import Test1 from "../views/Home.vue";
+import Layout from "@/layout/index.vue";
+import Home from "../views/three/index.vue";
 
 Vue.use(VueRouter);
 
 const cNname = {
-  Test1: "Test1",
-  Test1Layout: "Test1Layout",
-  Test2: "Test2",
-  Test2Layout: "Test2Layout"
+  Home: "Home",
+  HomeLayout: "HomeLayout",
+  ME: "ME",
+  Common: "Common",
+  TestLayout: "TestLayout",
+  Test: "Test"
 };
 
 export const routes = [
   {
     path: "/",
-    redirect: "test1/list",
+    redirect: "/home/list",
     hidden: true,
     meta: {
       hideInBread: true
     }
   },
   {
-    path: "/test1",
-    name: cNname.Test1Layout,
-    redirect: "/test1/list",
+    path: "/home",
+    name: cNname.HomeLayout,
+    redirect: "/home/list",
     component: Layout,
     meta: {
       hideInBread: true,
-      icon: "el-icon-menu"
+      icon: "el-icon-menu",
+      title: "主页"
     },
     children: [
       {
-        path: "/test1/list",
-        name: cNname.Test1,
-        component: Test1,
+        path: "/home/me",
+        name: cNname.ME,
+        component: () => import("@/views/me/index.vue"),
         meta: {
-          title: "测试一",
+          title: "我的",
           icon: "el-icon-menu"
+        }
+      },
+      {
+        path: "/home/list",
+        name: cNname.Home,
+        component: Home,
+        meta: {
+          title: "首页"
         }
       }
     ]
   },
   {
-    path: "/test2",
-    name: cNname.Test2Layout,
-    redirect: "/test2/list",
+    path: "/test",
+    name: cNname.TestLayout,
+    redirect: "/test/list",
     component: Layout,
     meta: {
-      hideInBread: true,
-      icon: "el-icon-menu"
+      hideInBread: true
     },
     children: [
       {
-        path: "/test2/list",
-        name: cNname.Test2,
-        component: () => {
-          import(/* webpackChunkName: "about" */ "@/views/About.vue");
-        },
+        path: "/test/list",
+        name: cNname.Test,
+        component: () => import("@/views/test/index.vue"),
         meta: {
-          title: "测试二",
+          title: "测试",
           icon: "el-icon-menu"
         }
       }

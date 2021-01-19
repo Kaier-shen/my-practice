@@ -1,5 +1,17 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <TextTooltip content="hehehehe" />
   </div>
 </template>
+
+<script>
+import TextTooltip from "@/components/text-tooltip/index.vue";
+export default {
+  components: {
+    TextTooltip,
+  },
+};
+</script>
+
+<style>
+</style>

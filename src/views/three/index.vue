@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container no-padding">
     <canvas id="c"> </canvas>
     <div id="info"></div>
   </div>
@@ -287,5 +287,8 @@ export default {
   display: block;
   width: 100%;
   height: 100%;
+}
+.no-padding{
+  padding: 0;
 }
 </style>

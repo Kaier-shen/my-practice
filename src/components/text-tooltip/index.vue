@@ -24,41 +24,41 @@ export default {
   props: {
     content: {
       // 内容
-      type: [Number, String],
+      type: [Number, String]
     },
     effect: {
       // 模式
       type: String,
-      default: "light",
+      default: "light"
     },
     placement: {
       // 位置
       type: String,
-      default: "top",
+      default: "top"
     },
     wrapperStyle: {
       // 容器样式
       type: Object,
-      default: () => {},
+      default: () => {}
     },
     contentStyle: {
       // 内容样式
       type: Object,
-      default: () => {},
-    },
+      default: () => {}
+    }
   },
   data() {
     return {
-      isShowTooltip: false,
+      isShowTooltip: false
     };
   },
   methods: {
     judge() {
       const parentWidth = this.$refs.wrapper.offsetWidth;
       const contentWidth = this.$refs.content.offsetWidth;
-      this.isShowTooltip = parentWidth > contentWidth;
-    },
-  },
+      this.isShowTooltip = parentWidth >= contentWidth;
+    }
+  }
 };
 </script>
 

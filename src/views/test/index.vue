@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-container">
     <TextTooltip content="hehehehe" />
   </div>
 </template>
@@ -8,10 +8,9 @@
 import TextTooltip from "@/components/text-tooltip/index.vue";
 export default {
   components: {
-    TextTooltip,
-  },
+    TextTooltip
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

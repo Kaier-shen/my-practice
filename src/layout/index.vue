@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Sliderbar from "./sliderbar/index.vue";
-import Navbar from "./navbar/index.vue";
+import Sliderbar from './sliderbar/index.vue';
+import Navbar from './navbar/index.vue';
 export default {
   components: {
     Sliderbar,

@@ -6,15 +6,15 @@
 </template>
 
 <script>
-import * as THREE from "three";
+import * as THREE from 'three';
 export default {
-  name: "Home",
+  name: 'Home',
   mounted() {
     this.init();
   },
   methods: {
     init() {
-      const canvas = document.querySelector("#c");
+      const canvas = document.querySelector('#c');
       const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
       renderer.setClearColor(0xaaaaaa);
       renderer.shadowMap.enabled = true;
@@ -219,13 +219,13 @@ export default {
       const tankTarget = new THREE.Vector2();
 
       const cameras = [
-        { cam: camera, desc: "detached camera" },
-        { cam: turretCamera, desc: "on turret looking at target" },
-        { cam: targetCamera, desc: "near target looking at tank" },
-        { cam: tankCamera, desc: "above back of tank" }
+        { cam: camera, desc: 'detached camera' },
+        { cam: turretCamera, desc: 'on turret looking at target' },
+        { cam: targetCamera, desc: 'near target looking at tank' },
+        { cam: tankCamera, desc: 'above back of tank' }
       ];
 
-      const infoElem = document.querySelector("#info");
+      const infoElem = document.querySelector('#info');
 
       function render(time) {
         time *= 0.001;
@@ -288,7 +288,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.no-padding{
+.no-padding {
   padding: 0;
 }
 </style>

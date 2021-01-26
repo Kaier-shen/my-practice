@@ -13,7 +13,7 @@ export default {
   methods: {
     getdata() {
       this.$axios
-        .get("/user?ID=12345")
+        .get('/user?ID=12345')
         .then(function(response) {
           console.log(response);
         })

@@ -9,7 +9,7 @@ export function toggleClass(element, className) {
   let classString = element.className;
   const nameIndex = classString.indexOf(className);
   if (nameIndex === -1) {
-    classString += "" + className;
+    classString += '' + className;
   } else {
     classString =
       classString.substr(0, nameIndex) +

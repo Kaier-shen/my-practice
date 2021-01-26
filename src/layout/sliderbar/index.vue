@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import childMenu from "./child-menu";
-import { routes } from "@/router";
+import childMenu from './child-menu';
+import { routes } from '@/router';
 
 function buildMenu(route, children = []) {
   const fChildren = (route.children || []).filter(v => !v.hidden);
@@ -25,8 +25,8 @@ function buildMenu(route, children = []) {
   const addNode = () => {
     const menu = {
       id: route.name,
-      icon: route.meta.icon || "",
-      name: route.meta.title || "",
+      icon: route.meta.icon || '',
+      name: route.meta.title || '',
       path: route.path,
       children: []
     };

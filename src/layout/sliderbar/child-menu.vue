@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "childMenu",
+  name: 'childMenu',
   props: {
     menus: {
       type: Array,

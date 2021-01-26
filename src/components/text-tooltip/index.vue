@@ -12,7 +12,7 @@
       @mouseover="judge"
     >
       <span :contentStyle="contentStyle" ref="content">{{
-        content || "--"
+        content || '--'
       }}</span>
     </p>
   </el-tooltip>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "textTooltip",
+  name: 'textTooltip',
   props: {
     content: {
       // 内容
@@ -29,12 +29,12 @@ export default {
     effect: {
       // 模式
       type: String,
-      default: "light"
+      default: 'light'
     },
     placement: {
       // 位置
       type: String,
-      default: "top"
+      default: 'top'
     },
     wrapperStyle: {
       // 容器样式

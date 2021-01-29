@@ -52,22 +52,22 @@ select:-webkit-autofill {
 * 边距｜字体大小｜行高 修饰器
 * 范围 1-50
 */
-@for $i from 1 through 30 {
-  .ui-mb-#{$i} { margin-bottom: 2px * $i !important; }
-  .ui-mr-#{$i} { margin-right: 2px * $i !important; }
-  .ui-ml-#{$i} { margin-left: 2px * $i !important; }
-  .ui-mt-#{$i} { margin-top: 2px * $i !important; }
-  .ui-m-#{$i} { margin: 2px * $i !important; }
-  .ui-mb-n#{$i} { margin-bottom: -2px * $i !important; }
-  .ui-mr-n#{$i} { margin-right: -2px * $i !important; }
-  .ui-ml-n#{$i} { margin-left: -2px * $i !important; }
-  .ui-mt-n#{$i} { margin-top: -2px * $i !important; }
-  .ui-pb-#{$i} { padding-bottom: 2px * $i !important; }
-  .ui-pr-#{$i} { padding-right: 2px * $i !important; }
-  .ui-pl-#{$i} { padding-left: 2px * $i !important; }
-  .ui-pt-#{$i} { padding-top: 2px * $i !important; }
-  .ui-fs-#{$i} { font-size: 2px * $i !important ; }
-  .ui-lh-#{$i} { line-height: 2px * $i !important;}
+@for $i from 1 through 15 {
+  .ui-mb-#{$i * 2} { margin-bottom: 2px * $i !important; }
+  .ui-mr-#{$i * 2} { margin-right: 2px * $i !important; }
+  .ui-ml-#{$i * 2} { margin-left: 2px * $i !important; }
+  .ui-mt-#{$i * 2} { margin-top: 2px * $i !important; }
+  .ui-m-#{$i * 2} { margin: 2px * $i !important; }
+  .ui-mb-n#{$i * 2} { margin-bottom: -2px * $i !important; }
+  .ui-mr-n#{$i * 2} { margin-right: -2px * $i !important; }
+  .ui-ml-n#{$i * 2} { margin-left: -2px * $i !important; }
+  .ui-mt-n#{$i * 2} { margin-top: -2px * $i !important; }
+  .ui-pb-#{$i * 2} { padding-bottom: 2px * $i !important; }
+  .ui-pr-#{$i * 2} { padding-right: 2px * $i !important; }
+  .ui-pl-#{$i * 2} { padding-left: 2px * $i !important; }
+  .ui-pt-#{$i * 2} { padding-top: 2px * $i !important; }
+  .ui-fs-#{$i * 2} { font-size: 2px * $i !important ; }
+  .ui-lh-#{$i * 2} { line-height: 2px * $i !important;}
   // @if $i > 5 {
   //   .fs-#{$i} { font-size: 1px * $i !important ; }
   //   .lh-#{$i} { line-height: 1px * $i !important;}

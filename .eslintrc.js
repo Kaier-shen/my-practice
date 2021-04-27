@@ -13,10 +13,15 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint'
   },
+  globals: {
+    BigInt: true
+  },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
-    // "no-unused-vars": 0,
-    // "vue/no-unused-components": 0,
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-unused-vars': 0,
+    'vue/no-unused-components': 0,
+    'no-prototype-builtins': 0,
+    'vue/no-parsing-error': 0
   }
 };

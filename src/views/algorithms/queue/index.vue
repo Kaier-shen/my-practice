@@ -1,5 +1,7 @@
 <template>
-  <div class="app-container">112312321</div>
+  <div class="app-container">
+    队列
+  </div>
 </template>
 
 <script>

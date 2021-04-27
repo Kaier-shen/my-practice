@@ -1,9 +1,9 @@
 <template>
-  <div class="app-container">112312321</div>
+  <div class="app-container">
+    自定义
+  </div>
 </template>
 
 <script>
 export default {};
 </script>
-
-<style></style>

@@ -6,13 +6,13 @@
         :index="item.path"
       >
         <template slot="title">
-          <i :class="item.icon"></i>
+          <i :class="item.icon" class="iconfont ui-mr-10"></i>
           <span v-show="!isCollapse" slot="title">{{ item.name }}</span>
         </template>
         <child-menu :menus="item.children" :isCollapse="isCollapse" />
       </el-submenu>
       <el-menu-item :index="item.path" v-else>
-        <i :class="item.icon"></i>
+        <i :class="item.icon" class="iconfont ui-mr-10"></i>
         <span slot="title">{{ item.name }}</span>
       </el-menu-item>
     </div>

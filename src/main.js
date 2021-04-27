@@ -17,6 +17,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/styles/reset.scss';
 import '@/assets/styles/common.scss';
 import '@/assets/styles/ui.scss';
+import '@/assets/iconfont/iconfont.css';
+import '@/assets/iconfont/iconfont.js';
 
 Vue.use(ElementUI);
 

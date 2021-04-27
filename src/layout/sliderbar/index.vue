@@ -16,12 +16,10 @@
 
 <script>
 import childMenu from './child-menu';
-import { routes } from '@/router';
+import { vueRoutes } from '@/router';
 
 function buildMenu(route, children = []) {
   const fChildren = (route.children || []).filter(v => !v.hidden);
-  // console.log(fChildren);
-
   const addNode = () => {
     const menu = {
       id: route.name,
@@ -55,16 +53,15 @@ export default {
   data() {
     return {
       isCollapse: true,
-      routes,
+      routes: vueRoutes,
       list: []
     };
   },
 
   mounted() {
-    routes.forEach(v => {
+    vueRoutes.forEach(v => {
       !v.hidden && buildMenu(v, this.list, []);
     });
-    // console.log(this.list);
   }
 };
 </script>

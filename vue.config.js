@@ -9,10 +9,7 @@ module.exports = {
         'window.jQuery': 'jquery',
         jQuery: 'jquery'
       })
-    ]
-    // devtool: 'source-map'
-  },
-  chainWebpack: config => {
-    config.devtool('source-map');
+    ],
+    devtool: 'source-map'
   }
 };

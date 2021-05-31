@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Stack from './stack-array-weakmap';
+import Stack from './stack-array';
 export default {
   data() {
     return {
@@ -28,7 +28,6 @@ export default {
       return this.stack && this.stack.size();
     },
     last() {
-      console.log(this.stack && this.stack.peek());
       return this.stack && this.stack.peek();
     },
     isEmpty() {
@@ -53,6 +52,25 @@ export default {
         default:
           break;
       }
+    },
+    decimalToBinary(decNumber, base = 2) {
+      let stack = new Stack();
+      let number = decNumber;
+      let digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let rem;
+      let str = '';
+      if (!(base >= 2 && base <= 36)) {
+        return '';
+      }
+      while (number > 0) {
+        rem = number % base;
+        number = Math.floor(number / base);
+        stack.push(rem);
+      }
+      while (!stack.isEmpty()) {
+        str += digits[stack.pop()];
+      }
+      return str;
     }
   }
 };

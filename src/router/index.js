@@ -11,7 +11,7 @@ export const routes = [
     redirect: '/home/index',
     hidden: true,
     meta: {
-      hideInBread: true
+      // hideInBread: true
     }
   },
   {
@@ -19,7 +19,7 @@ export const routes = [
     redirect: '/home/index',
     component: Layout,
     meta: {
-      hideInBread: true,
+      // hideInBread: true,
       icon: 'icon-shouye',
       title: '首页'
     },
@@ -47,7 +47,7 @@ export const routes = [
     redirect: '/css/index',
     component: Layout,
     meta: {
-      hideInBread: true
+      // hideInBread: true
     },
     children: [
       {
@@ -63,19 +63,35 @@ export const routes = [
   },
   {
     path: '/comp',
-    redirect: '/comp/index',
+    redirect: '/comp/tree',
     component: Layout,
     meta: {
-      hideInBread: true
+      icon: 'icon-zujian',
+      title: '组件'
     },
     children: [
       {
-        path: 'index',
-        name: 'comp',
-        component: () => import('@/views/comp/index.vue'),
+        path: 'tree',
+        name: 'tree',
+        component: () => import('@/views/comp/tree/index.vue'),
         meta: {
-          title: '组件',
-          icon: 'icon-zujian'
+          title: '树'
+        }
+      },
+      {
+        path: 'list',
+        name: 'list',
+        component: () => import('@/views/comp/list/index.vue'),
+        meta: {
+          title: '列表'
+        }
+      },
+      {
+        path: 'editor',
+        name: 'editor',
+        component: () => import('@/views/comp/editor/index.vue'),
+        meta: {
+          title: '富文本'
         }
       }
     ]
@@ -86,8 +102,8 @@ export const routes = [
     component: Layout,
     meta: {
       title: '数据结构与算法',
-      icon: 'icon-beehive',
-      hideInBread: true
+      icon: 'icon-beehive'
+      // hideInBread: true
     },
     children: [
       {
@@ -113,7 +129,7 @@ export const routes = [
     redirect: '/custom/index',
     component: Layout,
     meta: {
-      hideInBread: true
+      // hideInBread: true
     },
     children: [
       {
@@ -152,7 +168,6 @@ const makeRoutes = () => {
 };
 
 export const vueRoutes = makeRoutes();
-console.log(vueRoutes);
 
 const router = new VueRouter({
   mode: 'history',

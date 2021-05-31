@@ -45,7 +45,7 @@ export default class Stack {
     }
     let str = this.items[0] + '';
     for (let index = 1; index < this.count; index++) {
-      str += this.items[index];
+      str = str + ',' + this.items[index];
     }
     console.log(str);
     return str;

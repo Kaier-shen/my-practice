@@ -1,6 +1,4 @@
 const items = new WeakMap();
-console.log(items);
-
 export default class Stack {
   constructor() {
     items.set(this, []);

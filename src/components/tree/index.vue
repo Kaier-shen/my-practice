@@ -13,10 +13,7 @@
       @node-click="clickNode"
     >
       <span slot-scope="{ data }">
-        <span
-          class="el-tree-node__label"
-          v-html="getHtml(data[defaultProps.label], filterText)"
-        />
+        <span class="el-tree-node__label" v-html="getHtml(data[defaultProps.label], filterText)" />
       </span>
     </el-tree>
   </div>
@@ -78,14 +75,9 @@ export default {
       const _array = [];
       const getReturnNode = (node, value) => {
         const isPass =
-          node.data &&
-          node.data.label &&
-          node.data.label
-            .toLocaleLowerCase()
-            .indexOf(value.toLocaleLowerCase()) !== -1;
+          node.data && node.data.label && node.data.label.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) !== -1;
         if (isPass) _array.push(isPass);
-        if (!isPass && node.level !== 1 && node.parent)
-          getReturnNode(node.parent, value);
+        if (!isPass && node.level !== 1 && node.parent) getReturnNode(node.parent, value);
       };
       getReturnNode(node, value);
       return _array.length;
@@ -116,10 +108,7 @@ export default {
     line-height: 30px;
     font-size: 12px;
   }
-  ::v-deep
-    .el-tree--highlight-current
-    .el-tree-node.is-current
-    > .el-tree-node__content {
+  ::v-deep .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
     background: #f5f7fa;
     color: #fc652f;
   }

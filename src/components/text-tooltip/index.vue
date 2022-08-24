@@ -1,19 +1,7 @@
 <template>
-  <el-tooltip
-    :effect="effect"
-    :disabled="isShowTooltip"
-    :content="`${content}`"
-    :placement="placement"
-  >
-    <p
-      class="text-nowrap ui-ellipsis"
-      :style="wrapperStyle"
-      ref="wrapper"
-      @mouseover="judge"
-    >
-      <span :contentStyle="contentStyle" ref="content">{{
-        content || '--'
-      }}</span>
+  <el-tooltip :effect="effect" :disabled="isShowTooltip" :content="`${content}`" :placement="placement">
+    <p class="text-nowrap ui-ellipsis" :style="wrapperStyle" ref="wrapper" @mouseover="judge">
+      <span :contentStyle="contentStyle" ref="content">{{ content || '--' }}</span>
     </p>
   </el-tooltip>
 </template>

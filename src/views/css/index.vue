@@ -146,8 +146,7 @@ export default {
       outline: 1px solid transparent;
       background: linear-gradient(90deg, #333 50%, transparent 0) repeat-x,
         linear-gradient(90deg, #333 50%, transparent 0) repeat-x,
-        linear-gradient(0deg, #333 50%, transparent 0) repeat-y,
-        linear-gradient(0deg, #333 50%, transparent 0) repeat-y;
+        linear-gradient(0deg, #333 50%, transparent 0) repeat-y, linear-gradient(0deg, #333 50%, transparent 0) repeat-y;
       background-size: 4px 1px, 4px 1px, 1px 4px, 1px 4px;
       background-position: 0 0, 0 100%, 0 0, 100% 0;
       animation: linearGradientMove 0.3s infinite linear;
@@ -187,9 +186,8 @@ export default {
       background-repeat: no-repeat;
       background-size: 50% 50%, 50% 50%;
       background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-      background-image: linear-gradient(#399953, #399953),
-        linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33),
-        linear-gradient(#377af5, #377af5);
+      background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300),
+        linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
       animation: rotate 4s linear infinite;
     }
 
@@ -233,11 +231,7 @@ export default {
       background-color: #1a232a;
       background-repeat: no-repeat;
       background-position: 0 0;
-      background-image: conic-gradient(
-        transparent,
-        rgba(168, 239, 255, 1),
-        transparent 30%
-      );
+      background-image: conic-gradient(transparent, rgba(168, 239, 255, 1), transparent 30%);
       animation: rotate 4s linear infinite;
     }
 

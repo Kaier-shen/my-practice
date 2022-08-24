@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body{
+        height: 100%;
+      }
+      .tri {
+        /* width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 30px solid black; */
+        /* width: 40px;
+        height: 1px;
+        background: black;
+        transform: rotate(180deg); */
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .top {
+        height: 200px;
+        background: red;
+      }
+      .middle {
+        flex: 1;
+      }
+      .bottom {
+        height: 200px;
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="tri"></div> -->
+    <div class="container">
+      <div class="top">top</div>
+      <div class="middle">middle</div>
+      <div class="bottom">bottom</div>
+    </div>
+    <script>
+      function cal(x, y, option) {
+        return option === '+' ? x + y : x * y;
+      }
+
+      const curry = (fn, ...args) => {
+        return args.length >= fn.length
+          ? fn(...args)
+          : (..._args) => curry(fn, ...args, ..._args);
+      };
+      let add = curry(cal);
+      // console.log(add(2)(3)('+'));
+      // console.log(add(2)(3)('*'));
+
+      let arr = Array(110);
+      // console.log((Array(...arr)).map((_,i)=> i + arr.length))
+
+      function test(a, b) {
+        b = a + 10;
+        alert(b);
+        return {
+          test: function(a, b) {
+            return test(b, a);
+          }
+        };
+      }
+      // var b = test(102).test(202,302);
+      // b.test();
+
+      let arr1 = [
+        { id: 1, name: '部门1', pid: 0 },
+        { id: 2, name: '部门2', pid: 1 },
+        { id: 3, name: '部门3', pid: 1 },
+        { id: 4, name: '部门4', pid: 3 },
+        { id: 5, name: '部门5', pid: 4 }
+      ];
+      const getChildren = (data, result, pid) => {
+        data.forEach(item => {
+          if (item.pid === pid) {
+            const newItem = { ...item, children: [] };
+            result.push(newItem);
+            getChildren(data, newItem.children, pid + 1);
+          }
+        });
+      };
+
+      const arrayToTree = (data, pid) => {
+        const result = [];
+        getChildren(data, result, pid);
+        return result;
+      };
+      console.log(arrayToTree(arr1, 0));
+    </script>
+  </body>
+</html>

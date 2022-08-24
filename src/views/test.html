@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #app {
+        width: 500px;
+        height: 200px;
+        border-bottom: 2px solid #000000;
+        transform: rotate(45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <div>123</div>
+      <p>2345</p>
+      <div class="demo">
+        <span>哈喽</span>
+      </div> -->
+    </div>
+    <script>
+      let a = [10, 4, 1, 45, 21, 23];
+      function sorts(arr) {
+        for (let i = 1; i < arr.length; i++) {
+          for (let j = 0; j < arr.length - i; j++) {
+            if (arr[i] > arr[i + 1]) {
+              [arr[i + 1], arr[i]] = [arr[i], arr[i + 1]];
+            }
+          }
+        }
+        return arr;
+      }
+
+      function quick(arr) {
+        if (arr.length <= 1) {
+          return arr;
+        }
+        let flag = arr.shift();
+        let left = [];
+        let right = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] < flag) {
+            left.push(arr[i]);
+          } else {
+            right.push(arr[i]);
+          }
+        }
+        return quick(left).concat(flag, quick(right));
+      }
+
+      function quick1(arr, low = 0, high = arr.length - 1) {
+        if (low >= high) return;
+        let left = low;
+        let right = high;
+        let flag = arr[left];
+        while (left < right) {
+          if (flag <= arr[right]) {
+            right--;
+          }
+          arr[left] = arr[right];
+          if (flag >= arr[left]) {
+            left++;
+          }
+          arr[right] = arr[left];
+        }
+        console.log(left, right);
+        arr[left] = flag;
+        quick1(arr, low, left - 1);
+        quick1(arr, left + 1, high);
+        return arr;
+      }
+      // console.log(quick1(a));
+
+      function erfen(arr) {
+        let low = 0;
+        let high = arr.length - 1;
+        let mid;
+        while (low <= high) {
+          mid = Math.floor((high + low) / 2);
+          if (arr[mid] == target) {
+            console.log(`找到啦，第${mid}位`);
+            return mid;
+          }
+          if (target > arr[mid]) {
+            low = mid + 1;
+          }
+          if (target < arr[mid]) {
+            high = mid - 1;
+          }
+        }
+        return -1;
+      }
+      // console.log(erfen(a,21))
+
+      let tree = {
+        value: 1,
+        left: {
+          value: 2,
+          left: {
+            value: 4
+          }
+        },
+        right: {
+          value: 3,
+          left: {
+            value: 5,
+            left: {
+              value: 7
+            },
+            right: {
+              value: 8
+            }
+          },
+          right: {
+            value: 6
+          }
+        }
+      };
+
+      function _walk(node, func = () => {}) {
+        if (func(node) !== false) {
+          node = node.firstChild;
+          while (node) {
+            _walk(node, func);
+            node = node.nextSibling;
+          }
+        }
+      }
+      // _walk(document.getElementById('app'), node => {
+      //   console.log(node);
+      // });
+
+      function levelOrderTraversal(node) {
+        if (!node) {
+          throw new Error('Empty Tree');
+        }
+
+        var que = [];
+        que.push(node);
+        while (que.length !== 0) {
+          node = que.shift();
+          console.log(node.value);
+          if (node.left) que.push(node.left);
+          if (node.right) que.push(node.right);
+        }
+      }
+
+      function preOrder(node) {
+        if (node) {
+          console.log(node.value);
+          preOrder(node.left);
+          preOrder(node.right);
+        }
+      }
+      // preOrder(tree);
+
+      function helper(arr, n) {
+        if (n == 1 || n == 2) return 1;
+        if (arr[n]) return arr[n];
+        arr[n] = helper(arr, n - 1) + helper(arr, n - 2);
+        return arr[n];
+      }
+
+      function feibo(n) {
+        let arr = [];
+        return helper(arr, n);
+      }
+
+      function feibo1(n) {
+        let arr = [0, 1, 1];
+        for (let index = 3; index <= n; index++) {
+          arr[index] = arr[index - 1] + arr[index - 2];
+        }
+        return arr[n];
+      }
+
+      // console.time('feibo');
+      // console.log(feibo(100));
+      // console.timeEnd('feibo');
+
+      // console.time('feibo1');
+      // console.log(feibo1(100));
+      // console.timeEnd('feibo1');
+
+      class Change {
+        constructor(changeType) {
+          this.changeType = changeType;
+          this.cache = {};
+        }
+        makeChange(amount) {
+          let min = [];
+          if (!amount) {
+            return [];
+          }
+          if (this.cache[amount]) {
+            // 读缓存
+            return this.cache[amount];
+          }
+
+          for (let i = 0; i < this.changeType.length; i++) {
+            const leftAmount = amount - this.changeType[i];
+            let newMin;
+            if (leftAmount >= 0) {
+              newMin = this.makeChange(leftAmount); // 这⼀句是动态规划的提现
+            }
+            if (
+              leftAmount >= 0 &&
+              (newMin.length < min.length - 1 || !min.length)
+            ) {
+              min = [this.changeType[i]].concat(newMin);
+            }
+          }
+          return (this.cache[amount] = min);
+        }
+      }
+
+      const change = new Change([1, 5, 10, 20, 50, 100]);
+      // console.log(change.makeChange(5));
+
+      //  console.log( 'abc_de_f'.replace(/\_(\w)/g, (match, w) => {
+      //    console.log(match,w)
+      //     return letter.toUpperCase()
+      //   }))
+
+      const curry = (fn, ...args) => {
+        return args.length >= fn.length
+          ? fn(...args)
+          : (..._args) => curry(fn, ...args, ..._args);
+      };
+
+      function add1(x, y, z) {
+        return x + y + z;
+      }
+      const add = curry(add1);
+      // console.log(add(1, 2, 3));
+      // console.log(add(1)(2)(3));
+      // console.log(add(1, 2)(3));
+      // console.log(add(1)(2, 3));
+      function scroll() {
+        console.log('222');
+      }
+
+      // 节流
+      function throttle(fn, dely) {
+        let last = 0;
+        return function(...args) {
+          let now = Date.now();
+          if (now - last > dely) {
+            fn.call(this, ...args);
+            last = Date.now();
+          }
+        };
+      }
+
+      // 防抖
+      function debounce(fn, dely) {
+        return function(...args) {
+          if (fn.timer) clearTimeout(fn.timer);
+          fn.timer = setTimeout(() => {
+            fn.call(this, ...args);
+          }, dely);
+        };
+      }
+
+      // window.addEventListener('scroll', debounce(scroll, 1000));
+
+      function mnew(fn, ...arg) {
+        let newobj = Object.create(fn.prototype);
+        let res = fn.apply(newobj, arg);
+        return res instanceof Object ? res : newobj;
+      }
+
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      // let me = mnew(Person,'guojia',12)
+      // console.log(me)
+
+      Array.prototype.flat = function() {
+        let res = [];
+        this.forEach(v => {
+          if (Array.isArray(v)) {
+            res = res.concat(v.flat());
+          } else {
+            res.push(v);
+          }
+        });
+        return res;
+      };
+      console.log([[[1, 2], 3], 4].flat());
+    </script>
+  </body>
+</html>

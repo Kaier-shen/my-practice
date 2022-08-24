@@ -1,10 +1,7 @@
 <template>
   <div>
     <div v-for="item in menus" :key="item.id">
-      <el-submenu
-        v-if="item.children && item.children.length > 0"
-        :index="item.path"
-      >
+      <el-submenu v-if="item.children && item.children.length > 0" :index="item.path">
         <template slot="title">
           <i :class="item.icon" class="iconfont ui-mr-10"></i>
           <span v-show="!isCollapse" slot="title">{{ item.name }}</span>

@@ -68,10 +68,10 @@ select:-webkit-autofill {
   .ui-pt-#{$i * 2} { padding-top: 2px * $i !important; }
   .ui-fs-#{$i * 2} { font-size: 2px * $i !important ; }
   .ui-lh-#{$i * 2} { line-height: 2px * $i !important;}
-  // @if $i > 5 {
-  //   .fs-#{$i} { font-size: 1px * $i !important ; }
-  //   .lh-#{$i} { line-height: 1px * $i !important;}
-  // }
+  @if $i > 5 {
+    .fs-#{$i} { font-size: 1px * $i !important ; }
+    .lh-#{$i} { line-height: 1px * $i !important;}
+  }
 }
 
 // 链接色可点击
@@ -109,12 +109,6 @@ select:-webkit-autofill {
 .ui-flex-column {
   display: flex;
   flex-direction: column;
-}
-
-.ui-flex-auto {
-  flex: 1;
-  flex-shrink: 0;
-  overflow: autos;
 }
 
 .ui-flex--align-enter {

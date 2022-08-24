@@ -11,7 +11,7 @@
 
 <script>
 let list = [];
-for (let id = 0; id <= 10000; id++) {
+for (let id = 0; id <= 100000; id++) {
   list.push({
     id,
     value: Math.random()

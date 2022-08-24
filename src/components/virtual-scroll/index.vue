@@ -30,35 +30,30 @@ export default {
   },
   computed: {
     endIndex() {
-      let endIndex;
-      if (this.list[this.startIndex + this.size]) {
-        endIndex = this.startIndex + this.size;
-      } else {
+      let endIndex = this.startIndex + this.size * 2;
+      if (!this.list[endIndex]) {
         endIndex = this.list.length - 1;
       }
       return endIndex;
     },
     currentList() {
-      let startIndex;
+      let startIndex = 0;
       if (this.startIndex > this.size) {
-        startIndex = this.startIndex - this.size / 2;
+        startIndex = this.startIndex - this.size;
       } else {
-        startIndex = this.startIndex;
+        startIndex = 0;
       }
-      return this.list.slice(startIndex, this.endIndex + 1);
+      return this.list.slice(startIndex, this.endIndex);
     },
     wrapperStyle() {
-      let startIndex;
+      let startIndex = 0;
       if (this.startIndex > this.size) {
-        startIndex = this.startIndex - this.size / 2;
+        startIndex = this.startIndex - this.size;
       } else {
-        startIndex = this.startIndex;
+        startIndex = 0;
       }
       return {
-        padding: `${startIndex * this.itemHeight}px 0 ${(this.list.length -
-          1 -
-          this.endIndex) *
-          this.itemHeight}px`
+        padding: `${startIndex * this.itemHeight}px 0 ${(this.list.length - 1 - this.endIndex) * this.itemHeight}px`
       };
     }
   },
@@ -74,8 +69,7 @@ export default {
       this.startIndex = Math.floor(this.$refs.list.scrollTop / this.itemHeight);
     }, 60),
     setSize() {
-      this.size =
-        Math.floor(this.$refs.list.offsetHeight / this.itemHeight) * 2;
+      this.size = Math.floor(this.$refs.list.offsetHeight / this.itemHeight);
     }
   }
 };

@@ -103,11 +103,7 @@ export default {
       };
     },
     palindromeChecker(str) {
-      if (
-        str === undefined ||
-        str === null ||
-        (str == null && str.length === 0)
-      ) {
+      if (str === undefined || str === null || (str == null && str.length === 0)) {
         return false;
       }
       let queue = new Queue();

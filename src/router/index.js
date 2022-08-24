@@ -93,6 +93,30 @@ export const routes = [
         meta: {
           title: '富文本'
         }
+      },
+      {
+        path: 'xiumi',
+        name: 'xiumi',
+        component: () => import('@/views/comp/xiumi/index.vue'),
+        meta: {
+          title: '秀米'
+        }
+      },
+      {
+        path: 'markdown',
+        name: 'markdown',
+        component: () => import('@/views/comp/markdown.vue'),
+        meta: {
+          title: 'markdown'
+        }
+      },
+      {
+        path: 'flowChart',
+        name: 'flowChart',
+        component: () => import('@/views/comp/flowChart.vue'),
+        meta: {
+          title: 'flowChart'
+        }
       }
     ]
   },
